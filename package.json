@@ -24,7 +24,8 @@
         "pg": "^7.11.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
-        "react-router-dom": "^5.0.0"
+        "react-router-dom": "^5.0.0",
+        "semantic-ui-react": "^0.87.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
