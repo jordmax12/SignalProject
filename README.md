@@ -9,7 +9,7 @@
 
 # Pre-requisites
 
-- env file contains correct db connects:
+env file contains correct db connects:
 * DATABASE_URL
 * DATABASE_USER
 * DATABASE_PW
