@@ -1,9 +1,27 @@
-# WERN (Webpack, Express, React, Node) Skeleton
+## Code Challenge
 
 # To start
 
 - npm install
 - npm run webpack
+- npm run build-migrate
 - npm start
 
-NOTE: Skeleton supports JSX. Alternatively you can change the view engine if you wish in ./app.js
+# Pre-requisites
+
+- env file contains correct db connects:
+* DATABASE_URL
+* DATABASE_USER
+* DATABASE_PW
+* DATABASE_HOST
+* DATABASE_PORT
+* DATABASE_TABLE
+
+# This is built on
+- Webpack
+- Express
+- ReactJS
+- NodeJS
+- PostgresSQL
+- node-pg-migrate
+
