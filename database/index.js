@@ -12,12 +12,25 @@ client.connect(function(err) {
 });
 
 const endpoints = {
-    getAll: () => new Promise((resolve, reject) => {
-        client.query(`SELECT * from ${process.env.DATABASE_TABLE}`, function(err, result) {
+    getNotifications: (start, end) => new Promise((resolve, reject) => {
+        let query = `SELECT * from ${process.env.DATABASE_TABLE} `;
+        if (start) query += `WHERE created >= '${start}' `;
+        if (end) query += `WHERE created <= '${end}'`;
+
+        client.query(query, function(err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result.rows);
+            }
+        });
+    }),
+    getById: (id) => new Promise((resolve, reject) => {
+        client.query(`SELECT * from ${process.env.DATABASE_TABLE} where id = ${id}`, function(err, result) {
             if (err) {
                 reject(err);
             }
-            console.log('logging results length', result.rows.length);
+            console.log('logging results', result);
             resolve(result.rows);
         });
     })

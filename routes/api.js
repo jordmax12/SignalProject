@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { getAll } = require('../database/index');
+const { getNotifications } = require('../database/index');
 
-router.get('/api/get', (req, res) => {
-    getAll()
+router.all('/api/getNotifications', (req, res) => {
+    getNotifications(req.body.start, req.body.end)
         .then(results => {
             res.json({ error: null, data: results })
         })

@@ -34,3 +34,14 @@ env file contains correct db connects:
 - NodeJS
 - PostgresSQL
 - node-pg-migrate
+
+# Endpoints
+- getNotifications
+    * GET
+        * Simple get will return all notifications, can not specify a date range here.
+    * POST
+        * Simple post will return all notifications, which also accept 2 optional body parameters:
+            * start - datetime in which you'd like to get notifications equal or greater than this date.
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+            * end - datetime in which you'd like to get notifications equal or less than this date.
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
