@@ -24,6 +24,3 @@ env file contains correct db connects:
 - NodeJS
 - PostgresSQL
 - node-pg-migrate
-
-
-
