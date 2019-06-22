@@ -32,7 +32,7 @@ env file contains correct db connects:
 - Express
 - ReactJS
 - NodeJS
-- PostgresSQL
+- PostgreSQL
 - node-pg-migrate
 
 # Endpoints

@@ -7,7 +7,8 @@
         "start": "node app.js",
         "webpack": "npx webpack -w",
         "migrate": "./node_modules/.bin/node-pg-migrate",
-        "build-migrate": "npm run migrate up"
+        "build-migrate": "npm run migrate up",
+        "build-prod": "npm install --only=production"
     },
     "author": "Anonymous",
     "license": "ISC",
