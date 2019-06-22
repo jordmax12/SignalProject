@@ -1,6 +1,6 @@
 ## Code Challenge
 
-Simple full stack example of creating a nodejs/express based api connected to an external postgres db, and having a react front end that gets compiled with webpack and transpiled with babel. Simple CRUD operations for 'notification' table. Able to access this endpoint on an external endpoint using Heroku.
+Simple full stack example of creating a nodejs/express based api connected to an external postgres db, and having a react front end that gets compiled and transpiled with webpack and babel respectively. Simple CRUD operations for 'notification' table. Able to access this endpoint on an external endpoint using Heroku.
 
 # To start
 
@@ -35,7 +35,7 @@ env file contains correct db connects:
 - PostgreSQL
 - node-pg-migrate
 
-# Endpoints
+# API
 - getNotifications
     * GET
         * Simple get will return all notifications, can not specify a date range here.
