@@ -11,6 +11,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(express.static(__dirname + '/views/assets'));
+app.use(express.static(__dirname + '/views/assets/css'));
 // Here we can do user validation middleware before accessing anything.
 app.use('*', middleware)
 app.use(api);

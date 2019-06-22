@@ -1,0 +1,22 @@
+.w100 {
+    width: 100%;
+}
+
+.mtb10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mtb15 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.mtb25 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.tac {
+    text-align: center;
+}
