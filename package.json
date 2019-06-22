@@ -1,5 +1,5 @@
 {
-    "name": "SignalCodingChallenge",
+    "name": "signal-coding-challenge",
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
@@ -9,7 +9,7 @@
         "migrate": "./node_modules/.bin/node-pg-migrate",
         "build-migrate": "npm run migrate up"
     },
-    "author": "Author Name Here",
+    "author": "Anonymous",
     "license": "ISC",
     "dependencies": {
         "babel-cli": "^6.26.0",
