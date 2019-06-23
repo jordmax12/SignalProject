@@ -28,20 +28,32 @@ class Home extends React.Component {
 
         if (start) data['start'] = moment(start).toISOString();
         if (end) data['end'] = moment(end).toISOString();
-        this.setState({ isLoading: true })
+        let validated = true;
+        if(start && end)
+        {
+            if(moment(start) > moment(end))
+            {
+                alert('end date can not be less than start date.');
+                validated = false;
+            }
+        }
+        if(validated)
+        {
+            this.setState({ isLoading: true })
 
-        fetch('/api/getNotifications', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(r => r.json())
-            .then(results => {
-                if(results.error) alert(results.error);
-                else this.setState({ results: results.data, isLoading: false })
+            fetch('/api/getNotifications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
+                .then(r => r.json())
+                .then(results => {
+                    if(results.error) alert(results.error);
+                    else this.setState({ results: results.data, isLoading: false })
+                })
+        }
     }
 
     handleDateChange = (e, { name, value }) => this.setState({ [name]: value }, () => {

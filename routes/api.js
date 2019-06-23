@@ -3,11 +3,28 @@ const router = express.Router();
 const { createNotification, deleteNotification, getById, getNotifications, updateNotification } = require('../database/index');
 
 router.all('/api/getNotifications', (req, res) => {
-    getNotifications(req.body.start || req.query.start, req.body.end || req.query.end)
-        .then(results => {
-            res.json({ error: null, data: results })
-        })
-        .catch(err => res.json({ error: err, data: null }))
+    let start = req.body.start || req.query.start,
+        end = req.body.end || req.query.end,
+        validated = true;
+
+    if (start && end) {
+        let _start = moment(start),
+            _end = moment(end);
+
+        if (_start > _end) {
+            validated = false;
+        }
+    }
+
+    if (validated) {
+        getNotifications(req.body.start || req.query.start, req.body.end || req.query.end)
+            .then(results => {
+                res.json({ error: null, data: results })
+            })
+            .catch(err => res.json({ error: err, data: null }))
+    } else {
+        res.json({ error: 'start date can not be after end date', data: null });
+    }
 })
 
 router.post('/api/createNotification', (req, res) => {
