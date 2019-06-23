@@ -70,3 +70,9 @@
 .card {
     width: 400px !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .gridItemHalf {
+        width: 100%;
+    }
+}
