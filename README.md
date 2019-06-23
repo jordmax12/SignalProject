@@ -81,3 +81,11 @@ env file contains correct db connects:
     * created
         * timestamptz
             * example: 2019-06-23T01:49:00.000Z
+
+# Routes
+- /
+    * home page
+- /detail/:id
+    * detail page passing in the id of the row from DB.
+- /create
+    * create notification page
