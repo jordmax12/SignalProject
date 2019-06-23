@@ -12,9 +12,7 @@ class Main extends React.Component {
 
         this.state = defaults;
     }
-
-    componentDidMount() {
-    }
+    
     render() {
         return (
             <Switch>

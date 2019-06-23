@@ -48,21 +48,20 @@ const endpoints = {
             'message'
         ]
 
-        let argsValid = true;
+        let argsValid = false;
 
         const defaultType = "Unknown Issue";
 
         for (var key in args) {
-            let arg = args[key];
-            if (requiredArgs.indexOf(arg) == -1) {
-                argsValid = false;
+            if (requiredArgs.indexOf(key) > -1) {
+                requiredArgs = requiredArgs.filter(arg => arg != key);
             }
         }
 
-        if (!argsValid) reject({ error: "Must supply name and message as arguments.", data: null })
+        if (requiredArgs.length > 0) reject({ error: "Must supply name and message as arguments.", data: null })
         else {
             const { name, message } = args;
-            let id = `${name.replace(/ /g, '').toLowerCase()}-${createHash(6)}`
+            let id = `${name.replace(/ /g, '').toLowerCase()}-${createHash(6).toLowerCase()}`
             let data = {
                 id,
                 name,
@@ -78,23 +77,29 @@ const endpoints = {
                 data['created'] = args.created;
             }
             let insert = `insert into notification (id, name, message, type`
-            let values = `VALUES (${data.id}, ${data.name}, ${data.message}, ${data.type}`;
+            let values = `VALUES ('${data.id}', '${data.name}', '${data.message}', '${data.type}'`;
 
             if (data.link) {
                 insert = `${insert}, link`
-                values = `${values}, ${data.link}`
+                values = `${values}, '${data.link}'`
             }
 
             if (data.created) {
                 insert = `${insert}, created`
-                values = `${values}, ${data.created}`
+                values = `${values}, '${data.created}'`
             }
 
             insert = `${insert})`;
             values = `${values})`;
 
             let query = insert + ' ' + values;
-            console.log(query);
+
+            client.query(query, function(err, result) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result);
+            });
         }
     })
 }
