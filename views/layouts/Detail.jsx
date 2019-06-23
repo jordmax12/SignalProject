@@ -14,10 +14,8 @@ const defaults = {
 class Detail extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         defaults['id'] = props.match.params.id;
-        this.state = defaults;
-        
+        this.state = defaults;        
     }
 
     componentDidMount() {
