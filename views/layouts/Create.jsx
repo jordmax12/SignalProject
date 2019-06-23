@@ -44,11 +44,11 @@ class Create extends React.Component {
     inputHandler = (prop, value) => this.setState({ [prop]: value });
 
     render() {
-        const { created } = this.state;
+        const { created, name, message, link, type } = this.state;
         return (
             <div className="tac">
                 Create Notification
-                <AddNotification edit={false} inputHandler={this.inputHandler} createNotification={this.createNotification} created={created} deleteNotification={() => null} updateNotification={() => null} />
+                <AddNotification edit={false} inputHandler={this.inputHandler} createNotification={this.createNotification} created={created} deleteNotification={() => null} updateNotification={() => null} created={created} name={name} message={message} link={link} type={type} />
             </div>
         )
     }

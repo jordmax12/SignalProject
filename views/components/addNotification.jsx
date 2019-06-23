@@ -20,16 +20,16 @@ class AddNotification extends React.Component {
                 <Grid>
                     <Grid.Column>
                         <div className="w100 mtb15 tac">
-                            <Input type="text" placeholder="name" onChange={(e) => this.props.inputHandler('name', e.target.value)} />
+                            <Input value={this.props.name} type="text" placeholder="name" onChange={(e) => this.props.inputHandler('name', e.target.value)} />
                         </div>
                         <div className="w100 mtb15 tac">
-                            <Input type="text" placeholder="message" onChange={(e) => this.props.inputHandler('message', e.target.value)} />
+                            <Input value={this.props.message} type="text" placeholder="message" onChange={(e) => this.props.inputHandler('message', e.target.value)} />
                         </div>
                         <div className="w100 mtb15 tac">
-                            <Input type="text" placeholder="type" onChange={(e) => this.props.inputHandler('type', e.target.value)} />
+                            <Input value={this.props.type} type="text" placeholder="type" onChange={(e) => this.props.inputHandler('type', e.target.value)} />
                         </div>
                         <div className="w100 mtb15 tac">
-                            <Input type="text" placeholder="link" onChange={(e) => this.props.inputHandler('link', e.target.value)} />
+                            <Input value={this.props.link} type="text" placeholder="link" onChange={(e) => this.props.inputHandler('link', e.target.value)} />
                         </div>
                         <div className="w100 mtb15 tac">
                             <DateTimeInput

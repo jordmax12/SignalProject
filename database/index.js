@@ -27,12 +27,47 @@ const endpoints = {
         });
     }),
     getById: (id) => new Promise((resolve, reject) => {
-        client.query(`SELECT * from ${process.env.DATABASE_TABLE} where id = ${id}`, function(err, result) {
+        client.query(`SELECT * from ${process.env.DATABASE_TABLE} where id = '${id}'`, function(err, result) {
             if (err) {
                 reject(err);
+            } else {
+                resolve(result.rows.shift());
             }
-            console.log('logging results', result);
-            resolve(result.rows);
+        });
+    }),
+    updateNotification: (args) => new Promise((resolve, reject) => {
+        if (!args.id) reject("Must supply id")
+        else if (Object.keys(args).length == 1) reject("Nothing to update")
+        else {
+            let query = 'UPDATE notification SET';
+            const id = args.id;
+            delete args.id;
+            let i = 0;
+            let count = Object.keys(args).length;
+            for (var key in args) {
+                i++;
+                if (key != 'id') {
+                    query += ` ${key}='${args[key]}'${i == count ? '' : ','} `;
+                }
+            }
+
+            query += `WHERE id = '${id}'`;
+            client.query(query, function(err, result) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result);
+            });
+        }
+
+    }),
+    deleteNotification: (id) => new Promise((resolve, reject) => {
+        client.query(`delete from ${process.env.DATABASE_TABLE} where id = '${id}'`, function(err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(true);
+            }
         });
     }),
     createNotification: (args) => new Promise((resolve, reject) => {
@@ -104,4 +139,4 @@ const endpoints = {
     })
 }
 
-module.exports = endpoints;
+module.exports = endpoints;;
