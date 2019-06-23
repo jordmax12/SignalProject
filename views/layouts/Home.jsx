@@ -106,7 +106,7 @@ class Home extends React.Component {
                                     }
                                 </div>
 
-                                : <div> No Results </div>
+                                : <div className="tac"> No Results </div>
                         }
                     </React.Fragment>
                 )
