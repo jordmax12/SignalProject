@@ -98,7 +98,6 @@ const endpoints = {
                 if (err) {
                     reject(err);
                 }
-                console.log('logging results', result);
                 resolve(result);
             });
         }

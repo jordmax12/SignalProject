@@ -13,15 +13,14 @@ const defaults = {
 class Create extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = defaults;
     }
 
     createNotification = () => {
         const { name, message, link, type, created } = this.state;
-
+        console.log(created);
         let _created = moment(created).toISOString();
-
+        console.log(_created);
         fetch('/api/createNotification', {
             method: 'POST',
             headers: {
@@ -34,6 +33,11 @@ class Create extends React.Component {
                 type,
                 created: _created
             })
+        })
+        .then(r => r.json())
+        .then(results => {
+            if(!results.error) console.log('redirect to home page where they can view new notification.')
+            else alert(results.error);
         })
     }
 

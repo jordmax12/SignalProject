@@ -11,7 +11,6 @@ router.all('/api/getNotifications', (req, res) => {
 })
 
 router.post('/api/createNotification', (req, res) => {
-    console.log(req.body);
     if (!req.body.name) res.json({ error: 'Must supply name', data: null })
     else if (!req.body.message) res.json({ error: 'Must supply message', data: null })
     createNotification(req.body)

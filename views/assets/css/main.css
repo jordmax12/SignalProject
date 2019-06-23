@@ -20,3 +20,8 @@
 .tac {
     text-align: center;
 }
+
+.mrmla {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
