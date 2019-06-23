@@ -41,7 +41,12 @@ class AddNotification extends React.Component {
                             />
                         </div>
                         <div className="w100 mtb15 tac">
-                            <Button onClick={() => this.props.createNotification()}>Submit</Button>
+                            <Button onClick={() => this.props.edit ? this.props.updateNotification() : this.props.createNotification()}>{this.props.edit ? 'Update' : 'Submit'}</Button>
+                            {
+                                this.props.edit
+                                ? <Button onClick={() => this.props.deleteNotification()}>Delete</Button>
+                                : null
+                            }
                         </div>
                     </Grid.Column>
                 </Grid>

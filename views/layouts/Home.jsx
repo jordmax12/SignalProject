@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'semantic-ui-react'
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const defaults = {
     results: [],
@@ -12,7 +13,7 @@ const defaults = {
 class Home extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = defaults;
     }
 
@@ -70,9 +71,9 @@ class Home extends React.Component {
                                         (
                                             <Card className="mrmla" key={row.id}>
                                                 <Card.Content>
-                                                    <Card.Header>{`[${row.type}] ${row.name}`}</Card.Header>
+                                                    <Card.Header> {`[${row.type}] ${row.name}`}  <span style={{float: 'right', fontSize: '12px'}}><Link to={`/detail/${row.id}`}>edit</Link></span> </Card.Header>
                                                     <Card.Meta> {row.id} </Card.Meta>
-                                                    <Card.Description> {row.message} </Card.Description>
+                                                    <Card.Description> {row.message} { row.link ? <a href={row.link} target="__blank">Click here to view</a> : null} </Card.Description>
                                                 </Card.Content>
                                                 <Card.Content extra>
                                                     <p>{moment(row.created).format('MM/DD/YYYY h:mm')}</p>

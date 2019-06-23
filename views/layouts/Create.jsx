@@ -48,7 +48,7 @@ class Create extends React.Component {
         return (
             <div className="tac">
                 Create Notification
-                <AddNotification inputHandler={this.inputHandler} createNotification={this.createNotification} created={created} />
+                <AddNotification edit={false} inputHandler={this.inputHandler} createNotification={this.createNotification} created={created} deleteNotification={() => null} updateNotification={() => null} />
             </div>
         )
     }

@@ -2,6 +2,22 @@
     width: 100%;
 }
 
+.m10 {
+    margin: 10px;
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
 .mtb10 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -24,4 +40,10 @@
 .mrmla {
     margin-left: auto !important;
     margin-right: auto !important;
+}
+
+#header {
+    height: 50px;
+    width: 100%;
+    background-color: 'lightgrey';
 }

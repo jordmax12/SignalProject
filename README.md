@@ -38,10 +38,46 @@ env file contains correct db connects:
 # API
 - getNotifications
     * GET
-        * Simple get will return all notifications, can not specify a date range here.
+        * TODO: Simple get will return all notifications, optional query parameters
+            * start - datetime in which you'd like to get notifications equal or greater than this date. UTC timezone assumed.
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+            * end - datetime in which you'd like to get notifications equal or less than this date. UTC timezone assumed.
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
     * POST
         * Simple post will return all notifications, which also accept 2 optional body parameters:
             * start - datetime in which you'd like to get notifications equal or greater than this date. UTC timezone assumed.
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
             * end - datetime in which you'd like to get notifications equal or less than this date. UTC timezone assumed.
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+- createNotification
+    * POST
+        * Required body parameters
+            * name message
+        * Optional body parameters
+            * link
+                * if no link is provided, we wont display a link on the frontend
+            * type
+                * if no type is provided, we default to "Unknown Issue"
+            * created (ISO UTC)
+                * if created is provided, we default to current time, UTC
+
+# Types
+- Notification
+    * id
+        * auto generated using the name (stripped of whitespace and made lowercase) + a 6 digit hash.
+            * example: somethingbadhappened-thgh26
+    * name
+        * varchar(1000)
+            * example: Something Bad Happened
+    * message
+        * varchar(1000)
+            * example: This is a message that describes the issue in more detail.
+    * link
+        * varchar(1000)
+            * example: https://google.com
+    * type
+        * varchar(1000)
+            * example: "Data Issue" or "Config Issue"
+    * created
+        * timestamptz
+            * example: 2019-06-23T01:49:00.000Z
