@@ -37,7 +37,7 @@ env file contains correct db connects:
 - ReactJS
 - NodeJS
 - PostgreSQL
-- node-pg-migrate
+- SemanticUI
 
 # API
 - api/getNotifications
@@ -49,7 +49,7 @@ env file contains correct db connects:
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
         * examples
             * curl -X GET \
-                https://signal-code-challenge.herokuapp.com/api/getNotifications?start={2019-06-20T13:54:55Z}&end={2019-06-24T13:54:55Z} \
+                https://signal-code-challenge.herokuapp.com/api/getNotifications?start=2019-06-20T13:54:55Z&end=2019-06-24T13:54:55Z \
                 -H 'Accept: */*' \
                 -H 'Cache-Control: no-cache' \
                 -H 'Connection: keep-alive' \
