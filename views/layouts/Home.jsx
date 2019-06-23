@@ -64,6 +64,7 @@ class Home extends React.Component {
                                 <h3>Filter on Date(s)</h3>
                                 <Grid className="mt10">
                                     <div className="gridItemHalf">
+                                        from
                                         <DateTimeInput
                                             name="start"
                                             timeFormat="24"
@@ -73,6 +74,7 @@ class Home extends React.Component {
                                         />
                                     </div>
                                     <div className="gridItemHalf">
+                                        to
                                         <DateTimeInput
                                             name="end"
                                             timeFormat="24"
