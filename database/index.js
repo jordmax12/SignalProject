@@ -16,8 +16,8 @@ const endpoints = {
     getNotifications: (start, end) => new Promise((resolve, reject) => {
         let query = `SELECT * from ${process.env.DATABASE_TABLE} `;
         if (start) query += `WHERE created >= '${start}' `;
-        if (end) query += `WHERE created <= '${end}'`;
-
+        if (!start && end) query += `WHERE created <= '${end}'`;
+        if (start && end) query += `AND created <= '${end}'`;
         client.query(query, function(err, result) {
             if (err) {
                 reject(err);

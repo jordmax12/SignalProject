@@ -18,9 +18,7 @@ class Create extends React.Component {
 
     createNotification = () => {
         const { name, message, link, type, created } = this.state;
-        console.log(created);
         let _created = moment(created).toISOString();
-        console.log(_created);
         fetch('/api/createNotification', {
             method: 'POST',
             headers: {

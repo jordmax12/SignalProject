@@ -1,6 +1,12 @@
 ## Code Challenge
 Simple full stack example of creating a nodejs/express based api connected to an external postgres db, and having a react front end that gets compiled and transpiled with webpack and babel respectively. Simple CRUD operations for 'notification' table. Able to access this endpoint on an external endpoint using Heroku.
 
+# Live Site
+* https://signal-code-challenge.herokuapp.com
+
+# API
+* https://signal-code-challenge.herokuapp.com/api (See below for API endpoints)
+
 # To start
 - npm install
 - npm run webpack
@@ -43,7 +49,7 @@ env file contains correct db connects:
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
         * examples
             * curl -X GET \
-                https://signal-code-challenge.herokuapp.com/api/getNotifications \
+                https://signal-code-challenge.herokuapp.com/api/getNotifications?start={2019-06-20T13:54:55Z}&end={2019-06-24T13:54:55Z} \
                 -H 'Accept: */*' \
                 -H 'Cache-Control: no-cache' \
                 -H 'Connection: keep-alive' \
@@ -58,6 +64,19 @@ env file contains correct db connects:
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
             * end - datetime in which you'd like to get notifications equal or less than this date. UTC timezone assumed.
                 * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
+        * examples
+            * curl -X POST \
+            https://signal-code-challenge.herokuapp.com/api/getNotifications \
+            -H 'Accept: */*' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Connection: keep-alive' \
+            -H 'Content-Type: application/json' \
+            -H 'Host: signal-code-challenge.herokuapp.com' \
+            -H 'User-Agent: PostmanRuntime/7.15.0' \
+            -H 'accept-encoding: gzip, deflate' \
+            -H 'cache-control: no-cache' \
+            -H 'content-length: 94' \
+            -d '{"start": "2019-06-20T13:54:55Z", "end": "2019-06-24T13:54:55Z"}'
 
 - api/createNotification
     * POST
@@ -90,19 +109,71 @@ env file contains correct db connects:
     * GET
         * Required query string parameters
             * id
+    * examples
+        * GET
+            * curl -X GET \
+                https://signal-code-challenge.herokuapp.com/api/getNotification?id={notificationID} \
+                -H 'Accept: */*' \
+                -H 'Cache-Control: no-cache' \
+                -H 'Connection: keep-alive' \
+                -H 'Content-Type: application/json' \
+                -H 'Host: signal-code-challenge.herokuapp.com' \
+                -H 'User-Agent: PostmanRuntime/7.15.0' \
+                -H 'accept-encoding: gzip, deflate' \
+                -H 'cache-control: no-cache' \
+                -H 'content-length: 94' \'
+        * POST
+            * curl -X POST \
+            https://signal-code-challenge.herokuapp.com/api/getNotification \
+            -H 'Accept: */*' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Connection: keep-alive' \
+            -H 'Content-Type: application/json' \
+            -H 'Host: signal-code-challenge.herokuapp.com' \
+            -H 'User-Agent: PostmanRuntime/7.15.0' \
+            -H 'accept-encoding: gzip, deflate' \
+            -H 'cache-control: no-cache' \
+            -H 'content-length: 94' \
+            -d '{"id": "{notificationID}"}'
 - api/updateNotification
     * POST
         * Required raw body json parameters (as raw body json)
             * id
         * Optional (but at least 1)
             * name, message, link, type (these will be udpated, must provide at least 1 to update)
+    * example
+        * curl -X POST \
+            https://signal-code-challenge.herokuapp.com/api/updateNotification \
+            -H 'Accept: */*' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Connection: keep-alive' \
+            -H 'Content-Type: application/json' \
+            -H 'Host: signal-code-challenge.herokuapp.com' \
+            -H 'User-Agent: PostmanRuntime/7.15.0' \
+            -H 'accept-encoding: gzip, deflate' \
+            -H 'cache-control: no-cache' \
+            -H 'content-length: 94' \
+            -d '{"id": "{notificationID}"}'
 - api/deleteNotification
     * POST
         * Required raw body json parameters (as raw body json)
             * id
+    * example
+        * curl -X POST \
+            https://signal-code-challenge.herokuapp.com/api/deleteNotification \
+            -H 'Accept: */*' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Connection: keep-alive' \
+            -H 'Content-Type: application/json' \
+            -H 'Host: signal-code-challenge.herokuapp.com' \
+            -H 'User-Agent: PostmanRuntime/7.15.0' \
+            -H 'accept-encoding: gzip, deflate' \
+            -H 'cache-control: no-cache' \
+            -H 'content-length: 94' \
+            -d '{"id": "{notificationID}"}'
 
 
-# Types
+# DB Types
 - Notification
     * id
         * auto generated using the name (stripped of whitespace and made lowercase) + a 6 digit hash.
@@ -123,7 +194,7 @@ env file contains correct db connects:
         * timestamptz
             * example: 2019-06-23T01:49:00.000Z
 
-# Routes
+# Client Routes
 - /
     * home page
 - /detail/:id

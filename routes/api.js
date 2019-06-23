@@ -3,7 +3,7 @@ const router = express.Router();
 const { createNotification, deleteNotification, getById, getNotifications, updateNotification } = require('../database/index');
 
 router.all('/api/getNotifications', (req, res) => {
-    getNotifications(req.body.start, req.body.end)
+    getNotifications(req.body.start || req.query.start, req.body.end || req.query.end)
         .then(results => {
             res.json({ error: null, data: results })
         })

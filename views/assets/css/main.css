@@ -7,30 +7,45 @@
 }
 
 .mt10 {
-    margin-top: 10px
+    margin-top: 10px !important;
 }
 
 .mt15 {
-    margin-top: 15px;
+    margin-top: 15px !important;
 }
 
 .mt25 {
-    margin-top: 25px;
+    margin-top: 25px !important;
 }
 
 .mtb10 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .mtb15 {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 .mtb25 {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
+
+.ptb10 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.ptb15 {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.ptb25 {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
 }
 
 .tac {
@@ -40,6 +55,10 @@
 .mrmla {
     margin-left: auto !important;
     margin-right: auto !important;
+}
+
+.gridItemHalf {
+    width: 49.9%;
 }
 
 #header {

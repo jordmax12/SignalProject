@@ -80,7 +80,6 @@ class Detail extends React.Component {
 
     getDetailById = () => {
         const { id } = this.state;
-        console.log('fetching detail')
         fetch('/api/getNotification', {
             method: 'POST',
             headers: {
@@ -90,10 +89,11 @@ class Detail extends React.Component {
         })
             .then(r => r.json())
             .then(results => {
-                // this.setState({ results: results.data, isLoading: false })
-                const { name, message, link, type, created } = results.data;
-                console.log(results);
-                this.setState({ name, message, link, type, created })
+                if(results.error) alert(results.error)
+                else {
+                    const { name, message, link, type, created } = results.data;
+                    this.setState({ name, message, link, type, created })
+                }
             })
     }
 

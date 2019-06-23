@@ -1,9 +1,6 @@
 import React from 'react';
 import { Grid, Input, Button } from 'semantic-ui-react';
-import {
-    DateTimeInput,
-    Icon
-  } from 'semantic-ui-calendar-react';
+import { DateTimeInput } from 'semantic-ui-calendar-react';
 
 class AddNotification extends React.Component {
     constructor(props) {
