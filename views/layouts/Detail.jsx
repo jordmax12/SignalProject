@@ -41,7 +41,7 @@ class Detail extends React.Component {
             .then(results => {
                 if(!results.error)
                 {
-                    this.setState({ results: results.data, isLoading: false })
+                    this.setState({ isLoading: false })
                     alert('Success!')
                 } else {
                     alert(results.error)
@@ -52,7 +52,7 @@ class Detail extends React.Component {
     updateNotification = () => {
         const { name, message, link, type, created, id } = this.state;
         let data = {
-            name, message, link, type, created
+            name, message, link, type, created: moment(created).toISOString()
         }
 
         data["id"] = id;
@@ -68,7 +68,7 @@ class Detail extends React.Component {
             .then(results => {
                 if(!results.error)
                 {
-                    this.setState({ results: results.data, isLoading: false })
+                    this.setState({ isLoading: false })
                     alert('Success!')
                 } else {
                     alert(results.error)
@@ -90,7 +90,8 @@ class Detail extends React.Component {
                 if(results.error) alert(results.error)
                 else {
                     const { name, message, link, type, created } = results.data;
-                    this.setState({ name, message, link, type, created })
+                    console.log(created, moment(created));
+                    this.setState({ name, message, link, type, created: moment(created).format('MM/DD/YYYY HH:mm') })
                 }
             })
     }
