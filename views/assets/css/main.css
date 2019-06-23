@@ -66,3 +66,7 @@
     width: 100%;
     background-color: 'lightgrey';
 }
+
+.card {
+    width: 400px !important;
+}

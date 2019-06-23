@@ -53,7 +53,7 @@ class Home extends React.Component {
 
         return (
             isLoading
-                ? <div> Loading </div>
+                ? <div className="mrmla tac"> Loading </div>
                 : (
                     <React.Fragment>
                         <div className="title tac ptb25">
