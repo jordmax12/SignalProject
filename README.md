@@ -40,15 +40,15 @@ env file contains correct db connects:
     * GET
         * TODO: Simple get will return all notifications, optional query parameters
             * start - datetime in which you'd like to get notifications equal or greater than this date. UTC timezone assumed.
-                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
             * end - datetime in which you'd like to get notifications equal or less than this date. UTC timezone assumed.
-                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
     * POST
         * Simple post will return all notifications, which also accept 2 optional body parameters:
             * start - datetime in which you'd like to get notifications equal or greater than this date. UTC timezone assumed.
-                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
             * end - datetime in which you'd like to get notifications equal or less than this date. UTC timezone assumed.
-                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS
+                * Uses postgres datetime, example: YYYY-MM-DD HH24:MI:SS (in ISO format)
 - createNotification
     * POST
         * Required body parameters
