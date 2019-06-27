@@ -1,4 +1,4 @@
-## Code Challenge
+## Notification Hub 
 Simple full stack example of creating a nodejs/express based api connected to an external postgres db, and having a react front end that gets compiled and transpiled with webpack and babel respectively. Simple CRUD operations for 'notification' table. Able to access this endpoint on an external endpoint using Heroku.
 
 # Live Site
